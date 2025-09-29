@@ -4,7 +4,7 @@
  */
 
 // 1. Je recupere la section à partir de laquelle je veux faire apparaite la modale
-const section1 = document.querySelector(".one");
+const section3 = document.querySelector(".three");
 
 // 2. Je recupere la modale
 const modal = document.querySelector(".modal");
@@ -12,20 +12,23 @@ const modal = document.querySelector(".modal");
 const modalQuit = document.querySelector(".modal-quit");
 
 // 4. Je lance la fonction onScrollDisplayModal sur l'evenement scroll de la fenetre
-window.addEventListener("scroll",onScrollDisplayModal);
+window.addEventListener("scroll", onScrollDisplayModal);
 
 // 5. Je fais disparaite la modale au clique sur la croix
-modalQuit.addEventListener("click",function(){
-    // ...
-
-    window.removeEventListener("scroll",onScrollDisplayModal);
+modalQuit.addEventListener("click", function () {
+    modal.style.display = "none";
 });
 
 /**
  *  Fonction à passer en parametre de addEventListener("scroll",function)
  *  Obligatoire pour pouvoir utiliser removeEventListener(function)
- */
-function onScrollDisplayModal(){
-    console.log("Ouiiii je scroollll");
-
+*/
+function onScrollDisplayModal() {
+    console.log("scrollY =", window.scrollY);
+    const triggerPop = window.scrollY;
+    //if (triggerPop > 1800) {
+    if (triggerPop > section3.offsetTop) {
+        modal.style.display = "flex";
+        window.removeEventListener("scroll", onScrollDisplayModal);
+    };
 }
