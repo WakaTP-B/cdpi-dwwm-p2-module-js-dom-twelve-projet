@@ -48,15 +48,15 @@ form.addEventListener("submit", function (event) {
     invalide(nom)
   }
   // eMail
-  if (isValidEmail(emailValue) == false) {
+  if (isValidEmail(emailValue) === false) {
     // email.nextElementSibling.classList.remove("invisible");
+    invalide(email);
   }
-  invalide(email);
   // Message
   if (messageValue.length < 10 || messageValue.length > 100) {
     // message.nextElementSibling.classList.remove("invisible");
+    invalide(message);
   }
-  invalide(message);
 });
 
 /**

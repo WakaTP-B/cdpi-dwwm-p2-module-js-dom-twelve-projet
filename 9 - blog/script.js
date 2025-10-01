@@ -35,19 +35,19 @@ posts.forEach(function (post) {
     // 4. Je créer un nouveau post dans le conteneur de post pour chaque post de la BDD
     const newPostElem = `<div class="post">
     
-                        <div class = "post-titre">
-                            <a href = "#">${post.titre}</a>
-                        </div>
+                            <div class = "post-titre">
+                                <a href = "#">${post.titre}</a>
+                            </div>
 
-                        <div class = "post-extrait">
-                            ${post.extrait}
-                        </div>
+                            <div class = "post-extrait">
+                                ${post.extrait}
+                            </div>
                         
-                        <div class = "post-hashtag">
-                            ${post.hashtag}
-                        </div>
+                            <div class = "post-hashtag">
+                                ${post.hashtag}
+                            </div>
 
-                    </div>`
+                        </div>`
 
     // 5. Je l'ajoute dans le conteneur de publication
 
