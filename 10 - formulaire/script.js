@@ -36,24 +36,27 @@ form.addEventListener("submit", function (event) {
   // Contraintes formulaire
   // Prénom     >>> faire une fonction
   if (prenomValue.length < 2 || prenomValue.length > 20) {
-    prenom.nextElementSibling.classList.remove("invisible");
-    setTimeout(function () {
-      prenom.nextElementSibling.classList.add("invisible");
-    }, 2000);
+    // prenom.nextElementSibling.classList.remove("invisible");
+    // setTimeout(function () {
+    //   prenom.nextElementSibling.classList.add("invisible");
+    // }, 2000);
+    invalide(prenom);
   }
   // Nom
   if (nomValue.length < 2 || nomValue.length > 20) {
-    nom.nextElementSibling.classList.remove("invisible");
+    // nom.nextElementSibling.classList.remove("invisible");
+    invalide(nom)
   }
   // eMail
   if (isValidEmail(emailValue) == false) {
-    email.nextElementSibling.classList.remove("invisible");
+    // email.nextElementSibling.classList.remove("invisible");
   }
+  invalide(email);
   // Message
   if (messageValue.length < 10 || messageValue.length > 100) {
-    message.nextElementSibling.classList.remove("invisible");
+    // message.nextElementSibling.classList.remove("invisible");
   }
-
+  invalide(message);
 });
 
 /**
@@ -69,6 +72,13 @@ function isValidEmail(email) {
   } else {
     return false;
   }
+}
+
+function invalide(elem) {
+  elem.nextElementSibling.classList.remove("invisible");
+  setTimeout(function () {
+    elem.nextElementSibling.classList.add("invisible");
+  }, 5000);
 }
 
 /**
